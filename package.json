@@ -1,0 +1,26 @@
+{
+  "name": "configurable-gulp-recipe-bump",
+  "version": "0.1.0",
+  "description": "Configurable gulp recipe that project bump version.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "bump",
+    "bump",
+    "version"
+  ],
+  "author": "Amobiz",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-bump": "^1.0.0",
+    "gulp-prompt": "^0.1.2",
+    "gulp-util": "^3.0.7",
+    "semver": "^5.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "sinon": "^1.17.2"
+  }
+}
