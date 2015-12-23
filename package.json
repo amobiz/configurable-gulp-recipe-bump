@@ -1,7 +1,7 @@
 {
   "name": "configurable-gulp-recipe-bump",
   "version": "0.1.0",
-  "description": "Configurable gulp recipe that project bump version.",
+  "description": "Configurable gulp recipe that bump project version.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
