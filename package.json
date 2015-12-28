@@ -1,5 +1,5 @@
 {
-  "name": "configurable-gulp-recipe-bump",
+  "name": "gulp-ccr-bump",
   "version": "0.1.0",
   "description": "Configurable gulp recipe that bump project version.",
   "main": "index.js",
@@ -7,9 +7,19 @@
     "test": "mocha"
   },
   "keywords": [
+	"gulp",
+	"gulp 4.0",
+	"gulp-ccr",
+	"configurable",
+	"configuration",
+	"configurations",
+	"configurable-gulp-recipe",
+	"configurable-gulp-recipes",
+	"recipe",
+	"recipes",
     "bump",
-    "bump",
-    "version"
+    "version",
+    "bump version"
   ],
   "author": "Amobiz",
   "license": "MIT",
