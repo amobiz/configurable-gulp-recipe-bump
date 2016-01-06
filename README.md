@@ -1,2 +1,2 @@
 # gulp-ccr-bump
-Configurable gulp recipe that bump project version.
+Cascading Configurable Gulp Recipe for gulp-chef that bump project version.

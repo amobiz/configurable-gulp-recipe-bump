@@ -1,20 +1,27 @@
 {
   "name": "gulp-ccr-bump",
   "version": "0.1.0",
-  "description": "Configurable gulp recipe that bump project version.",
+  "description": "Cascading Configurable Gulp Recipe for gulp-chef that bump project version.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gulp-cookery/gulp-ccr-bump.git"
+  },
   "scripts": {
     "test": "mocha"
   },
   "keywords": [
 	"gulp",
 	"gulp 4.0",
+	"gulp-cookery",
+	"gulp-chef",
 	"gulp-ccr",
 	"configurable",
 	"configuration",
 	"configurations",
 	"configurable-gulp-recipe",
 	"configurable-gulp-recipes",
+	"cookery",
 	"recipe",
 	"recipes",
     "bump",
