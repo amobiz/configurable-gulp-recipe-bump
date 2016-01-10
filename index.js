@@ -6,14 +6,14 @@ var messages = {
 		name: 'type',
 		message: 'What type of version bump would you like to do?',
 		choices: ['patch', 'minor', 'major'],
-		"default": 'patch'
+		default: 'patch'
 	},
 	release: {
 		type: 'list',
 		name: 'release',
 		message: 'What type of release would you like to do?',
 		choices: ['release', 'prerelease', 'beta', 'alpha'],
-		"default": 'release'
+		default: 'release'
 	}
 };
 
@@ -33,19 +33,20 @@ var messages = {
  * Reference:
  * [gulp-bump - Bump npm versions with Gulp (gulpjs.com)](https://www.npmjs.com/package/gulp-bump/)
  */
-function bumpTask(gulp, config, stream, done) {
+function bumpTask(done) {
 	// lazy loading required modules.
-	var semver = require('semver'),
-		bump = require('gulp-bump'),
-		prompt = require('gulp-prompt').prompt;
+	var semver = require('semver');
+	var bump = require('gulp-bump');
+	var prompt = require('gulp-prompt').prompt;
 
-	var cwd,
-		pkg,
-		newVersion;
+	var gulp = this.gulp;
+	var config = this.config;
+
+	var stream, cwd, pkg, newVersion;
 
 	cwd = process.cwd();
 	pkg = require(cwd + '/package.json');
-	stream = stream || gulp.src(config.src.globs);
+	stream = this.upstream || gulp.src(config.src.globs);
 
 	if (config.options.interactive) {
 		prompt(messages.version, function (res1) {
@@ -60,49 +61,48 @@ function bumpTask(gulp, config, stream, done) {
 		return bumpTo(newVersion);
 	}
 
-	function bumpTo(newVersion) {
+	function bumpTo(version) {
 		return stream
-			.pipe(bump({ version: newVersion }))
+			.pipe(bump({ version: version }))
 			.pipe(gulp.dest(config.dest.path));
 	}
 }
 
 bumpTask.schema = {
-	"title": "bump",
-	"description": "Bump semver versions.",
-	"properties": {
-		"base": {
-			"description": "",
+	title: 'bump',
+	description: 'Bump semver versions.',
+	properties: {
+		base: {
+			description: '',
 			// 注意：這裡若不指定 base 的話，manifest.json 會輸出到 . 而非 app 目錄。
-			"default": "."
+			default: '.'
 		},
-		"source": {
-			"description": "",
-			"default": "package.json"
+		source: {
+			description: '',
+			default: 'package.json'
 		},
-		"target": {
-			"description": "",
-			"type": "array",
-			"items": {
-				"type": "string"
+		target: {
+			description: '',
+			type: 'array',
+			items: {
+				type: 'string'
 			}
-			//, "default": ['bower.json', 'app/manifest.json']
 		},
-		"options": {
-			"description": "",
-			"properties": {
-				"fields": {
-					"description": "",
-					"type": "array",
-					"items": {
-						"type": "string"
+		options: {
+			description: '',
+			properties: {
+				fields: {
+					description: '',
+					type: 'array',
+					items: {
+						type: 'string'
 					},
-					"default": ["version"]
+					default: ['version']
 				}
 			}
 		}
 	},
-	"required": ["target"]
+	required: ['target']
 };
 
 bumpTask.type = 'task';
