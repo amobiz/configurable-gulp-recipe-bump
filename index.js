@@ -91,7 +91,12 @@ function interact(prompt, messages, start, fn) {
 /**
  * Note:
  *
- * gulp-bump 可以一次修改多個 .json 檔案，針對每個檔案讀取其 version 資訊，然後各自修改其版本號碼。
+ * Gulp-bump bump version files independently, that make version not in sync.
+ * Here we always get version from package.json.
+ *
+ * Note in Traditional Chinese:
+ *
+ * Gulp-bump 可以一次修改多個 .json 檔案，針對每個檔案讀取其 version 資訊，然後各自修改其版本號碼。
  * 所以可能造成設定不同步的狀況，並不遵循 single source of truth 原則。
  * 這裡我們改為一律由 package.json 讀取 version 資訊，然後根據需求更新目標檔案的版本號碼。
  */
@@ -140,5 +145,5 @@ function bumpTask(done) {
 }
 
 module.exports = bumpTask;
-module.exports.type = 'task';
 module.exports.schema = schema;
+module.exports.type = 'task';
