@@ -51,25 +51,31 @@ var gulp = require('gulp');
 var chef = require('gulp-chef');
 
 var meals = chef({
-	bumpi: {
-		description: 'bump version interactively',
-		recipe: 'bump',
-		interactive: true
-	},
-	bumpm: {
-		description: 'bump major version',
-		recipe: 'bump',
-		type: 'major'
-	},
-	bumpn: {
-		description: 'bump minor version',
-		recipe: 'bump',
-		type: 'minor'
-	},
-	bump: {
-		description: 'bump patch version'
-	}
+  bumpi: {
+    description: 'bump version interactively',
+    recipe: 'bump',
+    interactive: true
+  },
+  bumpm: {
+    description: 'bump major version',
+    recipe: 'bump',
+    type: 'major'
+  },
+  bumpn: {
+    description: 'bump minor version',
+    recipe: 'bump',
+    type: 'minor'
+  },
+  bump: {
+    description: 'bump patch version'
+  }
 });
 
 gulp.registry(meals);
 ```
+
+## License
+[MIT](https://opensource.org/licenses/MIT)
+
+## Author
+[Amobiz](https://github.com/amobiz)
